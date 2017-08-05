@@ -166,10 +166,10 @@ echo -p "Do you have everything you need to start? (y/n)?"
 			sudo start parse-server
 			cd ..
 			# Shutting forever off for now. - Only direct parse-dashboard works in /etc/init/parse-dashboard.conf
-			# cd parse-dashboard
-			# sudo forever-service install parse-dashboard --script ./Parse-Dashboard/index.js --scriptOptions " allowInsecureHTTP"
-			# sudo start parse-dashboard
-			echo "start on startup\nexec parse-dashboard --config /root/parse-dashboard/Parse-Dashboard/parse-dashboard-config.json --allowInsecureHTTP true" > /etc/init/parse-dashboard.conf
+			cd ~/parse-dashboard
+			sudo forever-service install parse-dashboard --script ./Parse-Dashboard/index.js --scriptOptions " allowInsecureHTTP"
+			sudo start parse-dashboard
+			# echo "start on startup\nexec parse-dashboard --config /root/parse-dashboard/Parse-Dashboard/parse-dashboard-config.json --allowInsecureHTTP true" > /etc/init/parse-dashboard.conf
 
 			echo "- Generating Unique Master & Client Keys -"
 			sleep 2
